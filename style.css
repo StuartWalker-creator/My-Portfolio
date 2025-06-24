@@ -48,6 +48,17 @@ header nav ul li a {
   text-align: center;
   display: flex;
   align-items: center;
+  margin: 1px auto;
+}
+.navigation{
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@media(max-width: 768px){
+  .navigation{
+    flex-direction: column;
+  }
 }
 .hero h2 span {
   color: #f9dd04;
@@ -97,6 +108,10 @@ footer {
   header nav ul {
     flex-direction: column;
   }
+  
+}
+#contact-form{
+  max-width: 560px;
 }
 .home-pic{
   max-width: 100px;
