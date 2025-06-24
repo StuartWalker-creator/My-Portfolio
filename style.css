@@ -41,6 +41,8 @@ header nav ul li a {
   color: #fff;
   padding: 60px 0;
   text-align: center;
+  display: flex;
+  align-items: center;
 }
 .hero h2 span {
   color: #f9dd04;
@@ -90,4 +92,12 @@ footer {
   header nav ul {
     flex-direction: column;
   }
+}
+.home-pic{
+  max-width: 100px;
+  max-height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  padding:10px;
+  box-shadow: 2px 3px 5px hsla(235, 5%, 50%, 1);
 }
