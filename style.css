@@ -84,6 +84,18 @@ header nav ul li a {
 .hero h2 span {
   color: #f9dd04;
 }
+.owner-image{
+  display:inline;
+  float: right;
+  max-width:200px;
+  height:auto;
+  max-height:250px;
+  border-radius:10px;
+  box-shadow: 2px 4px 5px #80818B;
+}
+.side-intro{
+  display:flex;
+}
 section {
   padding: 40px 0;
 }
