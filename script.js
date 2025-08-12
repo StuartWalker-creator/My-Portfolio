@@ -46,7 +46,7 @@ function randomColor() {
 
 let circles = []
 
-for (var i = 0; i < 60; i++) {
+for (var i = 0; i < 100; i++) {
   let xd = Math.floor(Math.random()-0.5)*10
   let yd = Math.floor(Math.random()-0.5)*8
   let radius = Math.random() * 40 + 10;
