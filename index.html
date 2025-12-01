@@ -1,138 +1,491 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Stuart Wallker - Fullstack Web Designer & Developer in East Africa. I build fast, responsive websites for small and big businesses and entrepreneurs." />
-  <title>Mpungu Stuart | Full stack web developer.</title>
-  <link rel="stylesheet" href="style.css" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <meta name="google-site-verification" content="Y9jPULLRCoKyPLA5N9Y5gK7E6o8oHRPJlzSVn5lZHv0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>STUART WEB DEV — Professional websites for Uganda</title>
+  <meta name="description" content="STUART WEB DEV builds clean, fast and professional websites for real estate and SMEs in Uganda." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{
+      --tomato:#ff6347;
+      --dark-bg: #0b1220;
+      --card: #0f1724;
+    }
+    .smooth { transition: all .25s ease; }
+    .modal-bg { background: rgba(2,6,23,0.6); backdrop-filter: blur(6px); }
+    .zoom { transform: scale(1.03); transition: transform .25s ease; }
+    .hero-wave { filter: drop-shadow(0 8px 30px rgba(0,0,0,0.35)); }
+    [data-theme="dark"] body { background: var(--dark-bg); color: #e6eef8; }
+  </style>
 </head>
-<body>
-  <header>
-    <div class="container navigation">
-      <p class="head">Mpungu Stuart</p>
-      <nav>
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
+<body class="antialiased bg-white text-gray-800" data-theme="light">
+
+  <!-- NAVBAR -->
+  <header class="fixed w-full z-40 bg-white/90 backdrop-blur-md border-b border-gray-200">
+    <div class="max-w-6xl mx-auto flex items-center justify-between p-4">
+      <div class="flex items-center gap-3">
+        <!-- LOGO PLACEHOLDER (replace with your image) -->
+  <img class="w-14 h-14" src="images/stuartwebdevlogo.jpg" alt="" />
+
+        <div>
+          <div class="text-lg font-bold">STUART <span class="text-[tomato]">WEB DEV</span></div>
+          <div class="text-xs text-gray-500">Small but serious web agency • Kampala</div>
+        </div>
+      </div>
+
+      <nav id="desktopNav" class="hidden md:flex items-center gap-6 text-sm font-medium">
+        <a href="#home" class="hover:text-[tomato]">Home</a>
+        <a href="#services" class="hover:text-[tomato]">Services</a>
+        <a href="#work" class="hover:text-[tomato]">Work</a>
+        <a href="#pricing" class="hover:text-[tomato]">Pricing</a>
+        <a href="#contact" class="hover:text-[tomato]">Contact</a>
+        <button id="themeToggle" class="ml-2 p-2 rounded-md bg-gray-100 hover:bg-gray-200 text-sm">Dark</button>
       </nav>
+
+      <!-- mobile -->
+      <div class="md:hidden flex items-center gap-2">
+        <button id="mobileBtn" aria-label="open menu" class="p-2 rounded-md bg-white shadow">☰</button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="hidden md:hidden border-t border-gray-100">
+      <div class="px-4 py-3 flex flex-col gap-2">
+        <a class="mobile-link py-2" href="#services">Services</a>
+        <a class="mobile-link py-2" href="#work">Work</a>
+        <a class="mobile-link py-2" href="#pricing">Pricing</a>
+        <a class="mobile-link py-2" href="#contact">Contact</a>
+      </div>
     </div>
   </header>
 
-  <section id="home" class="hero">
-    <div class="container">
-      <h2>Hello, I'm <span class="name">Mpungu Stuart</span></h2>
-      <p>A Fullstack Web Developer & Web Designer  based in Uganda — building modern websites for East Africa and beyond.</p>
-     <a href="#contact">     <div class="CTA-btn">
-        Let's Work Together!
-      </div></a>
+  <!-- HERO -->
+  <main id="home" class="pt-28">
+    <section class="relative overflow-hidden">
+      <div class="max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">
+            Small but serious websites <span class="text-[tomato]">businesses trust</span>
+          </h1>
+          <p class="mt-4 text-gray-600 max-w-xl">
+            STUART WEB DEV builds clean, fast, professional websites for property companies and SMEs across Uganda — boosting credibility, visibility and sales.
+          </p>
 
-    </div>
-    <img class="home-pic" sizes="" srcset="" src="images/stuart.jpg
-    " alt="">
-  </section>
+          <div class="mt-6 flex gap-3">
+            <a href="#contact" class="inline-block bg-[tomato] text-white px-6 py-3 rounded-full font-semibold shadow hover:scale-105 transition">Start Your Website</a>
+            <button id="previewBtn" class="inline-block border border-gray-300 px-5 py-3 rounded-full hover:shadow transition">See Demos</button>
+          </div>
 
-  <section class="py-16" id="about">
-    <div class="container">
-      <h2 class="text-3xl font-bold text-center mb-10">About Me</h2>
-      <aside class="side-intro">
-   <p>I'm Stuart, a Professional Fullstack Web developer and freelance web designer from Uganda. I design and develop conversion-focused real estate websites that not only look professional but also help agents and developers capture more leads, close more deals, and build trust with buyers.
+          <div class="mt-6 flex gap-6 text-sm text-gray-500">
+            <div><span class="font-semibold text-gray-900">300k</span> UGX — Starter</div>
+            <div><span class="font-semibold text-gray-900">800k</span> UGX — Pro</div>
+            <div><span class="font-semibold text-gray-900">1.8M</span> UGX — Premium</div>
+          </div>
+        </div>
 
-My goal is simple — help East African real estate businesses move beyond listings on Facebook and WhatsApp to owning a strong online presence that drives direct sales.
-</p>
-              
-   <img class="owner-image" sizes="" srcset="" src="images/stuart.jpg" alt="">"
-      </aside>
-    </div>
-  </section>
-  
-  <section class="py-16" id="services">
-    <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-3xl font-bold text-center mb-10">Services</h2>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-white shadow-md p-6 rounded-xl text-center">
-          <h3 class="text-xl font-semibold mb-2">Web Design</h3>
-          <p>Modern, mobile-first designs tailored to your brand.</p>
-        </div>
-        <div class="bg-white shadow-md p-6 rounded-xl text-center">
-          <h3 class="text-xl font-semibold mb-2">Fullstack Development</h3>
-          <p>Clean, responsive HTML/CSS/JS/REACT + NODEJS/MONGODB using the latest best practices.</p>
-        </div>
-        <div class="bg-white shadow-md p-6 rounded-xl text-center">
-          <h3 class="text-xl font-semibold mb-2">Website Redesign</h3>
-          <p>Revamp outdated websites to attract more customers.Plus adding the latest SEO optimisation.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="py-16" id="projects">
-    <canvas id="canvas" class="canvas">
-      </canvas>
+        <!-- animated hero visual -->
+        <div class="relative">
+          <div class="rounded-2xl overflow-hidden shadow-lg hero-wave">
+            <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=1200&q=80" alt="hero" class="w-full h-96 object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-black/30 to-transparent"></div>
+            <div class="absolute left-6 bottom-6 bg-white/90 p-4 rounded-lg">
+              <div class="text-sm text-gray-600">Example Listing</div>
+              <div class="font-bold">3-Bed House • Naguru</div>
+              <div class="text-[tomato] font-semibold mt-1">UGX 700,000 / month</div>
+            </div>
+          </div>
 
-          <div class="container">
-      <h2 class="text-3xl font-bold text-center mb-10">Projects</h2>
-      <div class="project-grid">
-        <div class="project">
-          <h3>To-Do List App</h3>
-          <img class="project-image" sizes="" srcset="" src="images/todolist.jpg" alt="todo list">
-          <p>Simple task manager with local storage.</p>
-          <a href="#" target="_blank">View Demo</a>
-        </div>
-        <div class="project">
-          <h3>Hub Architecture Full site</h3>
-          <img class="project-image" sizes="" srcset="" src="images/hub-archtecture.jpg" alt="Hub Architecture">
-          <p>The full site for Hub Architecture company, an architect consultant company in uganda. Built with WordPress.</p>
-          <a href="https://angellacom.wordpress.com" target="_blank">View Demo</a>
-        </div>
-        <div class="project">
-          <h3>Amazon Clone</h3>
-                    <img class="project-image" sizes="" srcset="" src="images/amazon.jpg" alt="Amazon">
-
-          <p>Frontend shop with product listings, cart, and checkout.</p>
-          <a href="https://jms-amazon.netlify.app" target="_blank">View Demo</a>
-        </div>
-        <div class="project">
-          <h3>Calculator</h3>
-          <img class="project-image" sizes="" srcset="" src="images/calculator.jpg" alt="calculator">
-
-          <p>Responsive calculator built with JavaScript.</p>
-          <a href="https://stuartwalker-creator.github.io/Calc-at-top/" target="_blank">View Demo</a>
-        </div>
-       <div class="project">
-          <h3>Learning Outcomes tracker</h3>
-          <img class="project-image" sizes="" srcset="" src="images/learningoutcomes.jpg" alt="learning outcomes">
-
-          <p>Elegant tool to track a students learning progress</p>
-          <a href="https://mjs-angela-learn.netlify.app/" target="_blank">View Demo</a>
+          <div class="mt-4 grid grid-cols-3 gap-3 text-center">
+            <div class="bg-white rounded-lg p-3 shadow">
+              <div class="text-sm text-gray-500">Properties</div>
+              <div class="font-semibold">200+</div>
+            </div>
+            <div class="bg-white rounded-lg p-3 shadow">
+              <div class="text-sm text-gray-500">Happy Clients</div>
+              <div class="font-semibold">500+</div>
+            </div>
+            <div class="bg-white rounded-lg p-3 shadow">
+              <div class="text-sm text-gray-500">Experience</div>
+              <div class="font-semibold">10+ yrs</div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="py-16" id="contact">
-    <div class="container">
-      <h2 class="text-3xl font-bold text-center mb-10">Contact</h2>
-      <form id="contact-form"
-      action="https://formspree.io/f/xovwkbrr"
-      method="POST">
-        <input type="text" placeholder="Your Name" name="name" required />
-        <input type="email" placeholder="Your Email" name="email" required />
-        <textarea placeholder="Your Message" name="message" required></textarea>
-        <button id="submit" type="submit">Send Message</button>
-      </form>
-    </div>
-  </section>
+    <!-- SERVICES -->
+    <section id="services" class="py-16">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-8">Services</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="p-6 bg-white rounded-2xl shadow hover:shadow-xl transition transform hover:-translate-y-2">
+            <h3 class="font-bold text-[tomato]">Website Design</h3>
+            <p class="mt-2 text-gray-600">Modern, fast and responsive websites built to convert visitors into clients.</p>
+          </div>
+          <div class="p-6 bg-white rounded-2xl shadow hover:shadow-xl transition transform hover:-translate-y-2">
+            <h3 class="font-bold text-[tomato]">Real Estate Platforms</h3>
+            <p class="mt-2 text-gray-600">Listings, filters, WhatsApp contact and galleries — optimized for property sales and rentals.</p>
+          </div>
+          <div class="p-6 bg-white rounded-2xl shadow hover:shadow-xl transition transform hover:-translate-y-2">
+            <h3 class="font-bold text-[tomato]">Maintenance & Hosting</h3>
+            <p class="mt-2 text-gray-600">Updates, backups, hosting setup on free Netlify domain or custom domain configuration.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <footer>
-    <p>&copy; 2025 Mpungu Stuart. All rights reserved.</p>
+    <!-- WORK / PORTFOLIO -->
+    <section id="work" class="py-16 bg-gray-50">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="flex items-center justify-between mb-6">
+          <h2 class="text-3xl font-bold">Selected Projects</h2>
+          <div class="text-sm text-gray-500">Hover images for a quick preview • Click to open</div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="relative group rounded-xl overflow-hidden shadow-lg cursor-pointer" tabindex="0" data-title="Smart Property Demo" data-desc="One-page property listing platform with WhatsApp contact and featured listings." data-img="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" class="w-full h-56 object-cover group-hover:scale-105 transition transform" alt="">
+            <div class="p-4 bg-white">
+              <div class="font-semibold">Real Estate Demo</div>
+              <div class="text-sm text-gray-500 mt-1">Listing, contact & gallery</div>
+            </div>
+          </div>
+
+          <div class="relative group rounded-xl overflow-hidden shadow-lg cursor-pointer" tabindex="0" data-title="Business Website" data-desc="Professional business site with services, contact and lead capture." data-img="https://images.unsplash.com/photo-1460925895917-afdab827c52f">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f" class="w-full h-56 object-cover group-hover:scale-105 transition transform" alt="">
+            <div class="p-4 bg-white">
+              <div class="font-semibold">Business Website</div>
+              <div class="text-sm text-gray-500 mt-1">Services, about, contact</div>
+            </div>
+          </div>
+
+          <div class="relative group rounded-xl overflow-hidden shadow-lg cursor-pointer" tabindex="0" data-title="Portfolio Site" data-desc="Clean portfolio layout to showcase work and testimonials." data-img="https://images.unsplash.com/photo-1522202176988-66273c2fd55f">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" class="w-full h-56 object-cover group-hover:scale-105 transition transform" alt="">
+            <div class="p-4 bg-white">
+              <div class="font-semibold">Portfolio Site</div>
+              <div class="text-sm text-gray-500 mt-1">Credibility focused</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="py-16">
+      <div class="max-w-4xl mx-auto px-6 text-center">
+        <h2 class="text-3xl font-bold mb-6">Client feedback</h2>
+
+        <div class="relative bg-white rounded-2xl shadow p-6">
+          <div id="testSlides" class="overflow-hidden">
+            <div class="test-slide">
+              <p class="text-gray-700">“Stuart delivered our property site in less than a day. Leads increased immediately.”</p>
+              <div class="mt-4 font-semibold">— Josephine, Smart Property</div>
+            </div>
+            <div class="test-slide hidden">
+              <p class="text-gray-700">“Professional work and quick updates. Easy to work with.”</p>
+              <div class="mt-4 font-semibold">— Martin, Ham Online Shop</div>
+            </div>
+            <div class="test-slide hidden">
+              <p class="text-gray-700">“Our listings look very professional now, and customers call via WhatsApp directly.”</p>
+              <div class="mt-4 font-semibold">— Darch Studio</div>
+            </div>
+          </div>
+
+          <div class="mt-6 flex justify-center items-center gap-3">
+            <button id="prevTest" class="px-3 py-1 rounded bg-gray-100 hover:bg-gray-200">◀</button>
+            <div class="text-sm text-gray-500">Testimonials</div>
+            <button id="nextTest" class="px-3 py-1 rounded bg-gray-100 hover:bg-gray-200">▶</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing" class="py-16 bg-gray-50">
+      <div class="max-w-6xl mx-auto px-6 text-center">
+        <h2 class="text-3xl font-bold mb-6">Pricing</h2>
+        <p class="text-gray-600 mb-8">Simple, transparent packages. Start small and scale when you’re ready.</p>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-white p-6 rounded-2xl shadow hover:shadow-xl transition">
+            <div class="text-xl font-bold mb-2">Starter</div>
+            <div class="text-[tomato] font-bold text-2xl mb-4">300,000 UGX</div>
+            <ul class="text-left text-gray-600 space-y-2">
+              <li>Up to 5 pages</li>
+              <li>Netlify live link (.netlify.app)</li>
+              <li>WhatsApp contact buttons</li>
+              <li>Basic SEO</li>
+            </ul>
+            <div class="mt-6">
+              <button class="w-full bg-[tomato] text-white py-2 rounded" onclick="startPackage('Starter',300000)">Start(120k deposit)</button>
+            </div>
+          </div>
+
+          <div class="bg-white p-6 rounded-2xl shadow hover:shadow-xl transition transform scale-102 border-2 border-[tomato]">
+            <div class="text-xl font-bold mb-2">Pro</div>
+            <div class="text-[tomato] font-bold text-2xl mb-4">800,000 UGX</div>
+            <ul class="text-left text-gray-600 space-y-2">
+              <li>Everything in Starter</li>
+              <li>2 months small updates</li>
+              <li>Custom domain setup help</li>
+              <li>Faster delivery</li>
+            </ul>
+            <div class="mt-6">
+              <button class="w-full bg-[tomato] text-white py-2 rounded" onclick="startPackage('Pro',800000)">Start (320k deposit)</button>
+            </div>
+          </div>
+
+          <div class="bg-white p-6 rounded-2xl shadow hover:shadow-xl transition">
+            <div class="text-xl font-bold mb-2">Premium</div>
+            <div class="text-[tomato] font-bold text-2xl mb-4">1,800,000 UGX</div>
+            <ul class="text-left text-gray-600 space-y-2">
+              <li>Everything in Pro</li>
+              <li>Custom branding & thumbnails</li>
+              <li>Priority support</li>
+              <li>Advanced SEO & onboarding</li>
+            </ul>
+            <div class="mt-6">
+              <button class="w-full bg-[tomato] text-white py-2 rounded" onclick="startPackage('Premium',1800000)">Start (40% deposit)</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!-- CONTACT SECTION -->
+<section id="contact" class="py-20 bg-gray-50">
+  <div class="max-w-5xl mx-auto px-6">
+    <h2 class="text-4xl font-bold text-center text-gray-900">Get In Touch</h2>
+    <p class="text-center mt-2 text-gray-600">Have a project in mind? Let's talk.</p>
+
+    <!-- SUCCESS MESSAGE (Hidden by default) -->
+    <div id="successMessage" class="hidden mt-6 p-4 bg-green-100 text-green-800 rounded-xl text-center">
+      ✅ Your message has been sent successfully. I'll get back to you shortly!
+    </div>
+
+    <!-- FORM -->
+    <form 
+      name="contact"
+      method="POST"
+      data-netlify="true"
+      onsubmit="handleSubmit(event)"
+      class="mt-10 grid grid-cols-1 gap-6 bg-white p-8 rounded-2xl shadow-xl"
+    >
+      <!-- Netlify Hidden Input -->
+      <input type="hidden" name="form-name" value="contact">
+
+      <div>
+        <label class="block mb-1 font-semibold">Full Name</label>
+        <input 
+          type="text" 
+          name="name" 
+          required
+          class="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-tomato focus:outline-none"
+        >
+      </div>
+
+      <div>
+        <label class="block mb-1 font-semibold">Email Address</label>
+        <input 
+          type="email" 
+          name="email" 
+          required
+          class="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-tomato focus:outline-none"
+        >
+      </div>
+
+      <div>
+        <label class="block mb-1 font-semibold">Message</label>
+        <textarea 
+          name="message" 
+          rows="4" 
+          required
+          class="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-tomato focus:outline-none"
+        ></textarea>
+      </div>
+      
+      <button
+        type="submit"
+        class="w-full bg-orange-600 text-white py-3 rounded-xl font-semibold text-lg hover:bg-red-600 transition"
+      >
+        Send Message
+      </button>
+
+    </form>
+  </div>
+</section>
+
+</main>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-900 text-white py-6 mt-10">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <div class="mb-2">STUART WEB DEV — Kampala, Uganda</div>
+      <div class="text-sm text-gray-400">Email: <span class="text-[tomato]">stuartwalker041@gmail.com</span> • WhatsApp: <a class="text-[tomato]" href="https://wa.me/256790847433" target="_blank">+256 790 847 433</a></div>
+      <div class="mt-3 text-xs text-gray-500">© 2025 STUART WEB DEV. All rights reserved.</div>
+    </div>
   </footer>
 
-  <script src="script.js"></script>
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/256790847433" target="_blank" class="fixed right-4 bottom-6 z-50">
+    <div class="w-14 h-14 rounded-full bg-green-500 shadow-lg flex items-center justify-center text-white text-xl hover:scale-105 transition">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M21.6 2.4 2.4 21.6" stroke="white" stroke-width="2" stroke-linecap="round"/><path d="M20.2 3.8c2 2 2.5 5 1.4 7.6l-.9 2.1a2 2 0 0 1-2 1.2c-2.7 0-5.1-1-7.1-2.9A10 10 0 1 1 20.2 3.8z" stroke="white" stroke-width="1.1" fill="none"/></svg>
+    </div>
+  </a>
+
+  <!-- Portfolio Modal / Lightbox -->
+  <div id="modal" class="fixed inset-0 hidden items-center justify-center z-50">
+    <div class="modal-bg absolute inset-0"></div>
+    <div class="relative z-50 max-w-3xl mx-4">
+      <div class="bg-white rounded-xl overflow-hidden shadow-lg">
+        <img id="modalImg" src="" alt="" class="w-full h-72 object-cover">
+        <div class="p-4">
+          <div id="modalTitle" class="font-bold text-xl"></div>
+          <div id="modalDesc" class="text-gray-600 mt-2"></div>
+          <div class="mt-4 text-right">
+            <button id="closeModal" class="px-4 py-2 rounded bg-gray-100">Close</button>
+            <a id="modalContact" class="ml-2 px-4 py-2 rounded bg-[tomato] text-white" href="#">Contact</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+/* ==========================
+   Theme toggle (dark/light)
+   ========================== */
+const themeToggle = document.getElementById('themeToggle');
+const body = document.body;
+function setTheme(t) {
+  if (t === 'dark') {
+    document.documentElement.setAttribute('data-theme','dark');
+    body.classList.add('bg-slate-900');
+    themeToggle.textContent = 'Light';
+  } else {
+    document.documentElement.setAttribute('data-theme','light');
+    body.classList.remove('bg-slate-900');
+    themeToggle.textContent = 'Dark';
+  }
+  localStorage.setItem('stwd_theme', t);
+}
+const saved = localStorage.getItem('stwd_theme') || 'light';
+setTheme(saved);
+themeToggle.addEventListener('click', ()=> {
+  const cur = localStorage.getItem('stwd_theme') === 'dark' ? 'light' : 'dark';
+  setTheme(cur);
+});
+
+/* ==========================
+   Mobile menu toggle (fixed)
+   ========================== */
+const mobileBtn = document.getElementById('mobileBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+mobileBtn.addEventListener('click', ()=> {
+  mobileMenu.classList.toggle('hidden');
+});
+// close mobile menu when link clicked
+document.querySelectorAll('.mobile-link').forEach(a => a.addEventListener('click', ()=> mobileMenu.classList.add('hidden')));
+
+/* ==========================
+   Testimonial slider
+   ========================== */
+let currentTest = 0;
+const slides = Array.from(document.querySelectorAll('.test-slide'));
+document.getElementById('nextTest').addEventListener('click', nextTest);
+document.getElementById('prevTest').addEventListener('click', prevTest);
+function showTest(i){
+  slides.forEach((s, idx)=> s.classList.toggle('hidden', idx !== i));
+}
+function nextTest(){ currentTest = (currentTest +1) % slides.length; showTest(currentTest);}
+function prevTest(){ currentTest = (currentTest -1 + slides.length) % slides.length; showTest(currentTest);}
+setInterval(()=> nextTest(), 6000);
+
+/* ==========================
+   Portfolio lightbox modal
+   ========================== */
+document.querySelectorAll('[data-title]').forEach(item => {
+  item.addEventListener('click', ()=> openModal(item));
+  item.addEventListener('keypress', (e)=> { if (e.key === 'Enter') openModal(item); });
+});
+const modal = document.getElementById('modal');
+const modalImg = document.getElementById('modalImg');
+const modalTitle = document.getElementById('modalTitle');
+const modalDesc = document.getElementById('modalDesc');
+const modalContact = document.getElementById('modalContact');
+function openModal(item){
+  const img = item.getAttribute('data-img');
+  const title = item.getAttribute('data-title');
+  const desc = item.getAttribute('data-desc');
+  modalImg.src = img;
+  modalTitle.textContent = title;
+  modalDesc.textContent = desc;
+  modalContact.href = 'https://wa.me/256790847433?text=' + encodeURIComponent('Hello, I saw your project \"'+title+'\" and I would like to discuss a website.');
+  modal.classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+}
+document.getElementById('closeModal').addEventListener('click', ()=> {
+  modal.classList.add('hidden');
+  document.body.style.overflow = '';
+});
+modal.addEventListener('click', (e)=> { if (e.target === modal) { modal.classList.add('hidden'); document.body.style.overflow = ''; } });
+
+/* ==========================
+   Pricing quick start handler
+   ========================== */
+function startPackage(name, price){
+  // deposit logic (half deposit except Premium uses 50%)
+  let deposit;
+  if (price === 1800000) deposit = Math.round(price/2);
+  else deposit = Math.round(price/2);
+  const msg = `Hello, I'd like to start the ${name} package for my website. I understand the deposit is UGX ${deposit}.`;
+  window.open('https://wa.me/256790847433?text=' + encodeURIComponent(msg), '_blank');
+}
+
+/* ==========================
+   See Demos button -> scroll to #work
+   ========================== */
+document.getElementById('previewBtn').addEventListener('click', ()=> {
+  const target = document.getElementById('work');
+  if (target) target.scrollIntoView({behavior: 'smooth', block: 'start'});
+});
+
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const successMessage = document.getElementById("successMessage");
+
+    // Build form data
+    const formData = new FormData(form);
+
+    // Submit manually using fetch so we can control the success message
+    fetch("/", {
+      method: "POST",
+      body: formData,
+    })
+    .then(() => {
+      successMessage.classList.remove("hidden");
+      form.reset();
+    })
+    .catch(() => {
+      alert("Failed to send message. Please try again.");
+    });
+  }
+
+
+/* ==========================
+   Small UI niceties
+   ========================== */
+window.addEventListener('load', ()=> {
+  document.querySelectorAll('main section').forEach((s,i)=> {
+    s.style.opacity = 0; s.style.transform = 'translateY(10px)';
+    setTimeout(()=> { s.style.transition = 'opacity .5s, transform .5s'; s.style.opacity = 1; s.style.transform = 'translateY(0)'; }, 120*i);
+  });
+});
+document.addEventListener('keydown', (e)=> { if (e.key === 'Escape') { modal.classList.add('hidden'); document.body.style.overflow = ''; }});
+</script>
 </body>
 </html>
