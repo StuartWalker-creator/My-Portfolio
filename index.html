@@ -30,7 +30,7 @@
 
         <div>
           <div class="text-lg font-bold text-blue-900">STUART <span class="text-[tomato]">WEB DEV</span></div>
-          <div class="text-xs text-gray-500">Small but serious web agency • Kampala</div>
+          <div class="text-xs text-gray-500">Websites that Sale. Websites that Scale</div>
         </div>
       </div>
 
@@ -223,7 +223,7 @@
               <li>• 2 weeks support</li>
             </ul>
             <div class="mt-6">
-              <button class="w-full bg-[tomato] text-white py-2 rounded" onclick="startPackage('Starter',300000)">Start(320k deposit)</button>
+              <button class="w-full bg-[tomato] text-white py-2 rounded" onclick="startPackage('Starter',800000)">Start(320k deposit)</button>
             </div>
           </div>
 
@@ -241,7 +241,7 @@
               <li>• Faster delivery</li>
             </ul>
             <div class="mt-6">
-              <button class="w-full bg-[tomato] text-white py-2 rounded" onclick="startPackage('Pro',800000)">Start (600k deposit)</button>
+              <button class="w-full bg-[tomato] text-white py-2 rounded" onclick="startPackage('Pro',1500000)">Start (600k deposit)</button>
             </div>
           </div>
 
@@ -259,7 +259,7 @@
               <li>• 2 months support</li>
             </ul>
             <div class="mt-6">
-              <button class="w-full bg-[tomato] text-white py-2 rounded" onclick="startPackage('Premium',1800000)">Start (40% deposit)</button>
+              <button class="w-full bg-[tomato] text-white py-2 rounded" onclick="startPackage('Premium',3000000)">Start (40% deposit)</button>
             </div>
           </div>
         </div>
@@ -415,8 +415,8 @@ modal.addEventListener('click', (e)=> { if (e.target === modal) { modal.classLis
 function startPackage(name, price){
   // deposit logic (half deposit except Premium uses 50%)
   let deposit;
-  if (price === 1800000) deposit = Math.round(price/2);
-  else deposit = Math.round(price/2);
+  if (price === 1800000) deposit = Math.round(price * 0.4);
+  else deposit = Math.round(price * 0.4);
   const msg = `Hello, I'd like to start the ${name} package for my website. I understand the deposit is UGX ${deposit}.`;
   window.open('https://wa.me/256790847433?text=' + encodeURIComponent(msg), '_blank');
 }
